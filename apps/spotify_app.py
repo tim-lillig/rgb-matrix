@@ -6,7 +6,7 @@ import pygame
 
 GRID_WIDTH = 64
 GRID_HEIGHT = 32
-CELL_SIZE = 24
+CELL_SIZE = 16
 
 
 def initialize_background():
@@ -24,6 +24,7 @@ def initialize_background():
 
     # Place bg_matrix template
     bg = np.zeros((GRID_HEIGHT, GRID_WIDTH, 3))
+    bg[1:31, 1:31] = np.ones((30, 30, 3), dtype=np.uint8) * 255
     bg[1:6, 32:36] = title_icon
     bg[7:12, 32:36] = artist_icon
 

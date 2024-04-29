@@ -12,7 +12,7 @@ GRAY = (150, 150, 150)  # Adjust the shade of gray as needed
 # Define grid size and cell size
 GRID_WIDTH = 64
 GRID_HEIGHT = 32
-CELL_SIZE = 24
+CELL_SIZE = 16
 
 
 def render_pixels(grid_values, screen):
