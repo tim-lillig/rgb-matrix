@@ -11,7 +11,7 @@ CELL_SIZE = 24
 if __name__ == '__main__':
     # Initialize Pygame
     display_screen = pygame.display.set_mode((GRID_WIDTH * CELL_SIZE, GRID_HEIGHT * CELL_SIZE))
-    pygame.display.set_caption('Grid Renderer')
+    pygame.display.set_caption('Spotify App')
 
     # initialize spotify client
     spotify_client = sp.initialize_spotify()
