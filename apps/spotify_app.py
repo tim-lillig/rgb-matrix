@@ -1,8 +1,7 @@
 import numpy as np
 
-from spotify_app import main as sp
-from view_matrix import main as vm
-from resize_image import *
+from apps.components import view_matrix_pygame as vm, spotify_functionality as sp
+from apps.components.resize_image import *
 import pygame
 
 GRID_WIDTH = 64
@@ -27,7 +26,9 @@ if __name__ == '__main__':
         print("Error getting track info")
         resized_image = np.ones((30, 30, 3), dtype=np.uint8) * 255
 
+    # Generate a grid with all cells initially black
     black_grid = np.zeros((GRID_HEIGHT, GRID_WIDTH, 3))
+    # Place album image on background
     black_grid[1:31, 1:31] = resized_image
 
     vm.render_pixels(black_grid, display_screen)

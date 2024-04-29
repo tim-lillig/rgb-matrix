@@ -120,7 +120,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-spotify_app/.env
+apps/components/.env
 .venv
 env/
 venv/
