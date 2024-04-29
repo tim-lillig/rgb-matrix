@@ -14,15 +14,20 @@ if __name__ == '__main__':
     display_screen = pygame.display.set_mode((GRID_WIDTH * CELL_SIZE, GRID_HEIGHT * CELL_SIZE))
     pygame.display.set_caption('Grid Renderer')
 
-    # Get track info
-    curr_track = sp.get_current_track()
-    track_information = sp.get_track_info(curr_track)
+    # initialize spotify client
+    spotify_client = sp.initialize_spotify()
 
-    # Get resized image as pixel values
-    resized_image = resize_image_and_get_pixel_values(track_information['album_image'], (30, 30))
+    try:
+        curr_track = sp.get_current_track(spotify_client)
+        track_information = sp.get_track_info(curr_track, spotify_client)
+
+        # Get resized image as pixel values
+        resized_image = resize_image_and_get_pixel_values(track_information['album_image'], (30, 30))
+    except:
+        print("Error getting track info")
+        resized_image = np.ones((30, 30, 3), dtype=np.uint8) * 255
 
     black_grid = np.zeros((GRID_HEIGHT, GRID_WIDTH, 3))
     black_grid[1:31, 1:31] = resized_image
 
     vm.render_pixels(black_grid, display_screen)
-
