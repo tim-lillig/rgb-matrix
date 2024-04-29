@@ -95,7 +95,9 @@ def render_pixels(grid_values, screen):
     final_path = "output_files/" + new_grid_name
 
     with open(final_path, "w") as f:
-        f.write(repr(grid_values.tolist()))
+        if type(grid_values) is np.ndarray:
+            grid_values = grid_values.tolist()
+        f.write(repr(grid_values))
 
 
 # Example usage
